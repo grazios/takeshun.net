@@ -1,16 +1,27 @@
-# TAKESHUN
+# TAKESHUN DEV NOTES
 
-A small personal website for takeshun.net. Static HTML, CSS and JavaScript; no dependencies, server code, analytics or paid APIs.
+Personal development notes at https://takeshun.net/.
 
-## Publish
+## Architecture
 
-GitHub Pages serves the root of the main branch. Edit the files, commit and push to publish an update.
+Static HTML, CSS, and JavaScript. GitHub Pages publishes the repository root from main. No build step, database, analytics, third-party assets, or paid APIs.
 
-## Contents
+- index.html: article index, category filters, title/summary/tag search.
+- notes/: full article pages with a table of contents and related links.
+- script.js: URL-backed filters, return-to-list context, local accent preferences.
+- feed.xml: RSS summaries.
+- sitemap.xml and robots.txt: discovery metadata.
+- CNAME: custom domain.
 
-- index.html: Japanese text stored as numeric HTML entities to keep source ASCII.
-- style.css: Responsive design and reduced-motion support.
-- script.js: Three accent colors, saved only in the visitor's browser.
+Japanese HTML/XML text uses numeric entities to keep source files ASCII. Files render as Japanese in browsers. JavaScript is a progressive enhancement; articles and links work without it.
 
-Hosting uses the GitHub Pages free tier for public repositories. Domain registration remains billed by the registrar.
+## Add a note
+
+1. Copy a page in notes/ and update its title, canonical URL, summary, sections, table of contents, date, and related links.
+2. Add its article card to index.html, including data-category and searchable tags.
+3. Update category counts and the total count in index.html.
+4. Add the note to feed.xml and sitemap.xml.
+5. Preview desktop/mobile, check links, then commit and push main.
+
+Do not publish local DNS backups, credentials, or operational logs.
 
